@@ -78,6 +78,11 @@ jobs:
             fi
           done
       
+      - name: 拉取所有子模块（如KernelSU）
+        working-directory: ${{ env.WORKSPACE_DIR }}
+        run: |
+          git submodule update --init --recursive
+
       - name: 设置 KernelSU 分支
         id: setup_branch
         run: |
