@@ -2,7 +2,6 @@ name: 一加ACE5内核编译
 on:
   workflow_dispatch:
   schedule:
-    push:
     - cron: '0 16 * * *'
 
 env:
