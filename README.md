@@ -30,11 +30,7 @@
    - 选择刷入zip包并选择下载的zip文件
    - 重启设备
 
-2. **使用Fastboot刷入**：
-   - 下载`Image_KernelSU_*.zip`文件并解压
-   - 连接手机并进入Fastboot模式
-   - 执行命令：`fastboot flash init_boot 解压后的init_boot_Image.img文件路径`
-   - 重启设备
+> 目前仅支持AnyKernel3通用刷入方式，不再提供Image_KernelSU_*.zip及Fastboot刷入方案。
 
 ### 管理应用
 
