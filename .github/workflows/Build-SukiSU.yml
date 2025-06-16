@@ -31,11 +31,7 @@ jobs:
         uses: actions/checkout@v4
       - name: 删除所有已完成的 workflow 运行
         run: |
-<<<<<<< HEAD
           gh run list --limit 100 --json databaseId,status | jq -c '.[] | select(.status=="completed") | .databaseId' | xargs -I {} gh run delete {}
-=======
-          gh run list --limit 100 --json databaseId,status | jq -c '.[] | select(.status=="completed") | .databaseId' | xargs -I {} gh run delete {} --yes || true
->>>>>>> b4627b3c1d3bc078765f751713eb35f922146f95
         env:
           GH_TOKEN: ${{ github.token }}
       - name: 最大化构建空间
