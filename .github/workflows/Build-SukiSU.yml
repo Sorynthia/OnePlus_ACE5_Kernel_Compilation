@@ -27,13 +27,6 @@ jobs:
           delete_tag_pattern: 'build-*'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      - name: Checkout 仓库
-        uses: actions/checkout@v4
-      - name: 删除所有已完成的 workflow 运行
-        run: |
-          gh run list --limit 100 --json databaseId,status | jq -c '.[] | select(.status=="completed") | .databaseId' | xargs -I {} gh run delete {}
-        env:
-          GH_TOKEN: ${{ github.token }}
       - name: 最大化构建空间
         uses: easimon/maximize-build-space@master
         with:
@@ -260,18 +253,12 @@ jobs:
           clean_feil="${clean_feil%_u}"
           echo "value=$clean_feil" >> $GITHUB_OUTPUT
 
-      - name: 上传AnyKernel3
-        uses: actions/upload-artifact@v4
-        with:
-          name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}
-          path: ./AnyKernel3/*
-
-      - name: 上传 ZIP 工件
+      - name: 上传 AnyKernel3 ZIP 工件
         uses: actions/upload-artifact@v4
         with:
           name: Kernel_ZIP_Artifacts
           path: |
-            AnyKernel3_KernelSU_*.zip
+            ./AnyKernel3/AnyKernel3_KernelSU_*.zip
           retention-days: 1
       - name: 记录KSU版本号
         id: ksuver
