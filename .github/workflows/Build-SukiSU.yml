@@ -27,9 +27,11 @@ jobs:
           delete_tag_pattern: 'build-*'
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: Checkout 仓库
+        uses: actions/checkout@v4
       - name: 删除所有已完成的 workflow 运行
         run: |
-          gh run list --limit 100 --json databaseId,status | jq -c '.[] | select(.status=="completed") | .databaseId' | xargs -I {} gh run delete {} --yes || true
+          gh run list --limit 100 --json databaseId,status | jq -c '.[] | select(.status=="completed") | .databaseId' | xargs -I {} gh run delete {}
         env:
           GH_TOKEN: ${{ github.token }}
       - name: 最大化构建空间
