@@ -2,8 +2,7 @@ name: 一加ACE5内核编译
 on:
   workflow_dispatch:
   schedule:
-    -cron: '0 16 * * *'
-
+    - cron: '0 16 * * *'  # UTC 16:00（北京时间00:00）
 env:
   CPU: 'sm8650'
   FEIL: 'oneplus_ace5'
