@@ -30,8 +30,6 @@
    - 选择刷入zip包并选择下载的zip文件
    - 重启设备
 
-> 目前仅支持AnyKernel3通用刷入方式，不再提供Image_KernelSU_*.zip及Fastboot刷入方案。
-
 ### 管理应用
 
 推荐使用[SukiSU-Ultra管理器](https://github.com/ShirkNeko/SukiSU-Ultra/releases)来管理root权限。
