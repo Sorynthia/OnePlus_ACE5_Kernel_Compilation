@@ -1,7 +1,8 @@
 name: 一加ACE5内核编译
 on:
   workflow_dispatch:
-  push:
+  schedule:
+    -cron: '0 16 * * *'
 
 env:
   CPU: 'sm8650'
