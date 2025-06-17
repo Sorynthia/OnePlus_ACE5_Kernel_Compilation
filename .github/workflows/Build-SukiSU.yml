@@ -250,7 +250,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Kernel_ZIP_Artifacts
-          path: ./AnyKernel3/*
+          path: |
+            *.zip
           retention-days: 1
       - name: 记录KSU版本号
         id: ksuver
@@ -288,4 +289,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            release_zips/*
+            release_zips/AnyKernel3_KernelSU_*.zip
